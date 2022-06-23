@@ -1,8 +1,8 @@
-import {Product, ProductService} from "./product.service";
 import {TestBed} from "@angular/core/testing";
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
-import {environment} from "../../environments/environment";
-import {generateProducts} from "./mockFunctions/product.mock";
+import {environment} from "../../../environments/environment";
+import {generateProducts} from "../../services/mockFunctions/product.mock";
+import {Product, ProductService} from "./product.service";
 
 describe("Product Service", () => {
 
@@ -64,7 +64,7 @@ describe("Product Service", () => {
     const mockDataDto: Product[] = generateProducts(25)
     const mockDataResponse: any = {
       length: mockDataDto.length,
-      totalPrice: mockDataDto.reduce((acc, product)  => acc + product.price , 0),
+      totalPrice: mockDataDto.reduce((acc, product) => acc + product.price, 0),
       data: [...mockDataDto]
     }
 

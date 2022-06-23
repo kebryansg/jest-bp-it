@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map, Observable} from 'rxjs';
-import {environment} from "../../environments/environment";
+import {environment} from "../../../environments/environment";
 
 export interface Product {
   cod: string;
@@ -9,23 +9,25 @@ export interface Product {
   price: number;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductService {
   apiURL = environment.apiURL;
 
   constructor(private http: HttpClient) {
   }
 
+  sumar(first: number, second: number): number {
+    return first + second
+  }
+
   getProducts(): Observable<any> {
     return this.http.get<any[]>(this.apiURL + `/product`)
-      .pipe(
-        map(response => ({
-          length: response.length,
-          data: [...response]
-        }))
-      );
+    .pipe(
+      map(response => ({
+        length: response.length,
+        data: [...response]
+      }))
+    );
   }
 
   getProductsSummary(): Observable<any> {
@@ -34,7 +36,7 @@ export class ProductService {
         map(response => ({
           length: response.length,
           totalPrice: response
-            .reduce((acc, product)  => acc + product.price , 0),
+            .reduce((acc, product) => acc + product.price, 0),
           data: [...response]
         }))
       );

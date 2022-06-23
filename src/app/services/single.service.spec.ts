@@ -5,15 +5,13 @@ describe('Single Service', () => {
 
   //beforeEach
   beforeEach(() => {
-    console.log('beforeEach')
+    // console.log('beforeEach')
   })
 
   //beforeAll
   beforeAll(() => {
-    console.log('beforeAll')
+    // console.log('beforeAll')
   })
-
-
 
   // afterEach
   // afterAll

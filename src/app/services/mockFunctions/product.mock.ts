@@ -1,5 +1,5 @@
-import {Product} from "../product.service";
 import {faker} from "@faker-js/faker";
+import {Product} from "../../product/services/product.service";
 
 
 export function generateProduct(): Product {
